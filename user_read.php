@@ -3,7 +3,7 @@
 // var_dump($_POST);
 // exit();
 
-// session_start(); // セッションの開始
+session_start(); // セッションの開始
 include('functions.php'); // 関数ファイル読み込み
 // check_session_id();
 
@@ -78,10 +78,10 @@ if ($status == false) {
     foreach ($result as $record) {
 
         $output .= "<tr>";
-        $output .= "<td><a name='na'>{$record["name"]}</a></td>";
-        $output .= "<td><a name='ba'>{$record["base"]}</a></td>";
-        $output .= "<td><a name='wa'>{$record["warimono"]}</a></td>";
-        $output .= "<td><a name='ta'>{$record["taste"]}</a></td>";
+        $output .= "<td>{$record["name"]}</td>";
+        $output .= "<td>{$record["base"]}</td>";
+        $output .= "<td>{$record["warimono"]}</td>";
+        $output .= "<td>{$record["taste"]}</td>";
         $output .= "</tr>";
     }
 }
@@ -112,28 +112,28 @@ if ($status == false) {
 </head>
 
 <body>
-    <form action='host_cakutelorder.php' method="POST">
-        <fieldset>
-            <legend>検索履歴</legend>
-            <a href="user_serch.php">入力画面</a>
-            <table>
-                <thead>
-                    <tr>
-                        <th>名前</th>
-                        <th>ベース</th>
-                        <th>割りもの</th>
-                        <th>味</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- ここに<tr><td>deadline</td><td>todo</td><tr>の形でデータが入る -->
-                    <?= $output ?>
-                </tbody>
-                <p>注文しますか?</p>
-                <button>注文</button>
-            </table>
-        </fieldset>
-    </form>
+    <!-- <form action='host_cakutelorder.php' method="POST"> -->
+    <fieldset>
+        <legend>検索履歴</legend>
+        <a href="user_serch.php">入力画面</a>
+        <table>
+            <thead>
+                <tr>
+                    <th>名前</th>
+                    <th>ベース</th>
+                    <th>割りもの</th>
+                    <th>味</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- ここに<tr><td>deadline</td><td>todo</td><tr>の形でデータが入る -->
+                <?= $output ?>
+            </tbody>
+            <p>注文しますか?</p>
+            <button>注文</button>
+        </table>
+    </fieldset>
+    <!-- </form> -->
 </body>
 
 </html>
